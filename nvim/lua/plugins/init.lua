@@ -16,4 +16,12 @@ return {
     {
         "roobert/f-string-toggle"
     },
+
+    {
+        "nvim-neotest/nvim-nio"
+    },
+
+    {
+        "theHamsta/nvim-dap-virtual-text"
+    },
 }

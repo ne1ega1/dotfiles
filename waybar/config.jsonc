@@ -9,35 +9,48 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 20,
+    "mod": "dock",
+    "height": 30,
     //"width": 1480,
     "margin": "0 0 0 0",
-    "spacing": 3,
+    "spacing": 0,
     "output": "DP-3",
     "reload_style_on_change": true,
+    //"exclusive": true,
+    //"passthrough": false,
+    //"gtk-layer-shell": true,
+
     "modules-left": [
         "custom/launcher",
+        "group/ru-dark",
+        "group/ld-soft",
         "hyprland/workspaces",
-        //"wlr/taskbar",
-        "group/tray"
-        //"tray"
-        //"custom/weather"
-        //"hyprland/window"
+        "group/ru-soft",
+        "group/ld-dark",
+        "group/group-misc",
+        "group/ru-dark"
     ],
     "modules-center": [
-        //"group/panel"
+        //"group/lu-soft",
         "clock"
+        //"group/ru-soft"
     ],
     "modules-right": [
-        "custom/langicon",
+        "group/lu-dark",
+        "tray",
+        "group/rd-dark",
+        "group/lu-soft",
         "hyprland/language",
-        "custom/volicon",
+        "custom/sp2",
         "pulseaudio",
-        "custom/memicon",
+        "custom/sp2",
+        "cpu",
+        "custom/sp2",
         "memory",
-        "custom/tmpicon",
+        "custom/sp2",
         "temperature",
-        //"idle_inhibitor",
+        "group/rd-soft",
+        "group/lu-dark",
         "custom/notification"
     ],
     // =========================================================================
@@ -46,27 +59,18 @@
 
     // Base --------------------------------------------------------------------
 
-    "group/panel": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/launcher",
-            "hyprland/workspaces",
-            "clock",
-            "custom/weather",
-            "pulseaudio",
-            "temperature",
-            "idle_inhibitor",
-            "hyprland/language",
-            "tray",
-            "custom/notification"
-        ]
+    "custom/left": {
+        "tooltip": false
+    },
+    "custom/right": {
+        "tooltip": false
     },
     "custom/sp1": {
         "format": " | ",
         "tooltip": false
     },
     "custom/sp2": {
-        "format": " |",
+        "format": "\\",
         "tooltip": false
     },
     "custom/rofi": {
@@ -76,8 +80,9 @@
         "escape": true
     },
     "custom/launcher": {
-        "format": "󰣇",
-        "on-click": "exec nwg-drawer -c 8 -is 70 -spacing 23 -wm hyprland",
+        "format": " 󰣇 ",
+        //"on-click": "exec nwg-drawer -c 8 -is 70 -spacing 23 -wm hyprland",
+        "on-click": "~/.config/nwg-panel/nwg_menu_start.sh",
         "tooltip": false
     },
     "custom/settings": {
@@ -110,7 +115,7 @@
         }
     },
     "hyprland/language": {
-        "format": "{}",
+        "format": "   {}",
         "format-en": "EN",
         "format-ru": "RU"
     },
@@ -122,10 +127,10 @@
         "all-outputs": true,
         "format": "{icon}",
         "format-icons": {
-            "default": "",
-            "empty": "󰄰",
-            "urgent": "󰗖",
-            "active": ""
+            "default": "",
+            "empty": "",
+            "urgent": "󱓺",
+            "active": ""
         },
         "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
         "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
@@ -157,7 +162,7 @@
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
         //"format": "{icon}  {volume}%",
-        "format": "{volume}%",
+        "format": "   {volume}% ",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
@@ -185,17 +190,18 @@
         "spacing": 30
     },
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "{icon} ",
+        "icon-size": 22,
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "󰔡",
+            "deactivated": "󰨙"
         },
         "tooltip": "true",
         "on-click-right": "hyprlock"
     },
     "custom/notification": {
         "tooltip": false,
-        "format": "",
+        "format": " ",
         //"format": "{icon}",
         //"format-icons": {
         //    "notification": "<span foreground='red'><sup></sup></span>",
@@ -215,12 +221,12 @@
         "escape": true
     },
     "custom/pacman": {
-        "format": " {}",
+        "format": " {}  ",
         "interval": 7200, // every two hours
         "exec": "checkupdates | wc -l", // # of updates
         //"exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
         "exec-if": "exit 0", // always run; consider advanced run conditions
-        "on-click": "foot -e update", // update system
+        "on-click": "kitty -e sudo pacman -Syu", // update system
         "signal": 8
     },
     "custom/power": {
@@ -232,20 +238,20 @@
     // Hardware --------------------------------------------------------------
 
     "cpu": {
-        "interval": 5,
-        "format": " {}%", // Icon: microchip
+        "interval": 1,
+        "format": "  {}%",
         //"format": "{max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
         "max-length": 13,
         "min-length": 8,
-        "on-click": "alacritty -e btop"
+        "on-click": "kitty -e btop"
     },
     "memory": {
-        "interval": 10,
+        "interval": 5,
         //"format": "  {used:0.2f} / {total:0.0f} GB",
         //"format": "{}%",
-        "format": "{used}Gb",
+        "format": "  {}%",
         //"min-length": 8,
-        "on-click": "alacritty -e btop"
+        "on-click": "kitty -e btop"
     },
     "temperature": {
         // "thermal-zone": 1,
@@ -254,7 +260,7 @@
         "critical-threshold": 80,
         // "format-critical": " {temperatureC}°C",
         "format-critical": "  {temperatureC}°C",
-        "format": "{temperatureC}°C",
+        "format": " {temperatureC}°C",
         "format-icons": [
             "",
             "",
@@ -309,6 +315,20 @@
         ]
     },
 
+    "group/group-misc": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-misc",
+            "transition-right-to-left": false
+        },
+        "modules": [
+            "idle_inhibitor",
+            "custom/pacman",
+            "network"
+        ]
+    },
+
     // Other ---------------------------------------------------------------
 
     "custom/langicon": {
@@ -360,7 +380,7 @@
         ]
     },
     "network": {
-        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-wifi": "  {essid} ({signalStrength}%)  ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
         "format": "",

@@ -27,9 +27,11 @@ map("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split window" }
 -- Tabs
 map("n", "<Tab>", ":bn<CR>", { desc = "Next tab" })
 map("n", "<s-Tab>", ":bp<CR>", { desc = "Previous tab" })
-map("n", "<leader>x", ":bd<CR>", { desc = "Close active tab" })
+map("n", "<leader>x", ":BufferLinePickClose<CR>", { desc = "Close active tab" })
 map("n", "<leader>X", ":BufferLineCloseRight<CR>", { desc = "Close right tab" })
-map("n", "<leader>s", ":BufferLineSortByTabs<CR>", { desc = "Sorting tabs" })
+map("n", "<leader>s", ":BufferLineSortByTabs<CR>", { desc = "Sorting tabs by name" })
+map("n", "gs", ":BufferLineSortByDirectory<CR>", { desc = "Sorting tabs by directory" })
+map("n", "gb", ":BufferLinePick<CR>", { desc = "Picking tab" })
 
 -- Terminal
 map("n", "<leader>dd", ':TermExec cmd="sudo systemctl start docker.socket"', { desc = "Start docker" })
@@ -50,8 +52,8 @@ map(
 )
 
 -- Debugger
-map("n", "<leader>dt", ':lua require("dapui").toggle()<CR>')
-map("n", "<leader>db", ':lua require("dap").toggle_breakpoint()<CR>')
+-- map("n", "<leader>dt", ':lua require("dap_ui").toggle()<CR>', { desc = "Dap UI" })
+-- map("n", "<leader>db", ':lua require("dap").toggle_breakpoint()<CR>', { desc = "Toggle Breakpoint" })
 
 -- Other
 map("n", "<leader>h", ":nohlsearch<CR>")

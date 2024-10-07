@@ -1,4 +1,3 @@
-
 /*░█████╗░░██████╗░██████╗  ░██████╗████████╗██╗░░░██╗██╗░░░░░███████╗*/
 /*██╔══██╗██╔════╝██╔════╝  ██╔════╝╚══██╔══╝╚██╗░██╔╝██║░░░░░██╔════╝*/
 /*██║░░╚═╝╚█████╗░╚█████╗░  ╚█████╗░░░░██║░░░░╚████╔╝░██║░░░░░█████╗░░*/
@@ -7,16 +6,16 @@
 /*░╚════╝░╚═════╝░╚═════╝░  ╚═════╝░░░░╚═╝░░░░░░╚═╝░░░╚══════╝╚══════╝*/
 
 * {
-    font-family: JetBrainsMonoNerdFont;
-    font-size: 13px;
+    font-family: HackNerdFont;
+    font-size: 14px;
     min-height: 0;
     font-weight: bold;
     transition-duration: 0.5s;
 }
 
-@define-color color0 #1e1e2e;
-@define-color bg2 #2b2b4b;
-@define-color color1 #C0C4C6;
+@define-color color0 rgba(0, 0, 0, 0.7);
+@define-color color1 rgba(0, 0, 0, 0.5);
+@define-color color2 rgba(0, 0, 0, 0.3);
 @define-color pink #f5c2e7;
 @define-color green #a6e3a1;
 @define-color fl #f2cdcd;
@@ -33,9 +32,9 @@ window#waybar {
 }
 
 window#waybar>box {
-    border-radius: 23 23 23 23px;
-    margin: 5 5 5 5px;
-    background-color: alpha(@color1, 0.7);
+    border-radius: 0px;
+    margin: 5px 0px 5px 0px;
+    background-color: @color2;
     /*box-shadow: 0px 3px 5px #111111;*/
 }
 
@@ -43,15 +42,44 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+#cpu,
+#memory,
+#language,
+#custom-sp2,
+#pulseaudio,
+#temperature,
 #workspaces,
 #taskbar {
-    padding: 4 0 4 16px;
-    margin: 6px;
-    color: @color0;
-    background-color: @color3;
-    border: none;
-    border-radius: 20 5 5 20px;
+    background: @color1;
+    min-width: 50px;
 }
+
+#workspaces button {
+    padding: 6px 6px 6px 6px;
+    background-color: transparent;
+    /*color: @color0;*/
+}
+
+/*#workspaces button.active {
+  background-color: @color10;
+  border-radius: 20;
+	color: @color0;
+}*/
+
+#workspaces button:hover {
+    color: @color0;
+}
+
+/*#workspaces button.empty {
+	color: #6c7086
+	}*/
+
+/*#workspaces button.focused {
+}*/
+
+/*#workspaces button.urgent {
+	color: #f38ba8;
+}*/
 
 button {
     box-shadow: inset 0 -3px transparent;
@@ -65,72 +93,80 @@ button:hover {
     box-shadow: inset 0 -3px transparent;
 }
 
-/*button:active {
-	min-width: 90px;
-}*/
-
-#workspaces button {
-    padding: 6 6 6 7px;
-    background-color: transparent;
-    color: @color0;
+button:active {
+    min-width: 90px;
 }
 
-/*#workspaces button.active {
-  background-color: @color10;
-  border-radius: 20;
-	color: @color0;
-}*/
-#workspaces button:hover {
-    color: @color0;
+tooltip {
+    background: @bg;
+    margin: 0px;
+    padding: 0px;
+    border: 20px solid rgba(100, 114, 125, 0);
+    border-radius: 0px;
 }
 
-/*#workspaces button.empty {
-	color: #6c7086
-	}*/
-/*#workspaces button.focused {
-}*/
-/*#workspaces button.urgent {
-	color: #f38ba8;
-}*/
-
-#custom-memicon,
-#custom-volicon,
-#custom-tmpicon,
-#custom-langicon {
-    padding: 2 11 2 15px;
-    margin: 6 5 6 4px;
-    color: @color0;
-    background-color: @color3;
-    min-width: 15px;
-    border: none;
-    border-radius: 20 5 5 20px;
+#ru-dark {
+    border-left: 15px solid @color0;
+    border-bottom: 30px solid transparent;
 }
 
-#language,
-#tray,
-#group-tray,
-#pulseaudio,
-#memory,
+#ld-soft {
+    border-left: 15px solid transparent;
+    border-bottom: 30px solid @color1;
+}
+
+#ru-soft {
+    border-left: 15px solid @color1;
+    border-bottom: 30px solid transparent;
+}
+
+#ld-dark {
+    border-left: 15px solid transparent;
+    border-bottom: 30px solid @color0;
+}
+
+#lu-soft {
+    border-right: 15px solid @color1;
+    border-bottom: 30px solid transparent;
+}
+
+#lu-dark {
+    border-right: 15px solid @color0;
+    border-bottom: 30px solid transparent;
+}
+
+#rd-dark {
+    border-left: 15px solid @color0;
+    border-top: 30px solid transparent;
+}
+
+#rd-soft {
+    border-left: 15px solid @color1;
+    border-top: 30px solid transparent;
+}
+
+#tray {
+    padding: 6px 16px 6px 16px;
+}
+
 #temperature {
-    padding: 2 15 2 12px;
-    margin: 6 4 6 0px;
-    color: @color0;
-    background-color: @color3;
-    border: none;
-    border-radius: 5 20 20 5px;
+    padding: 6px 16px 6px 6px;
 }
 
-#language:hover {
-    color: @color0;
+#tray,
+#misc,
+#network,
+#idle_inhibitor,
+#custom-pacman,
+#custom-launcher,
+#custom-notification {
+    min-width: 45px;
+    background: @color0;
 }
 
 #pulseaudio.muted {
-    padding: 2 13 2 15px;
+    padding: 6px 16px 6px 6px;
     color: @red;
-}
-
-#pulseaudio:hover {
-    color: @color0;
 }
 
 #temperature.critical {
@@ -138,154 +174,120 @@ button:hover {
 }
 
 #clock {
-    padding: 2 15px;
-    margin: 6px;
-    /*font-size: 12;
-  font-family: Lato Medium;*/
-    color: @color0;
-    background-color: @color3;
-    border: none;
-    border-radius: 20px;
+    background: transparent;
+    font-family: JetBrainsNerdFont;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 2px 10px 0px 10px;
 }
 
-#clock:hover {
-    color: @color0;
-}
-
-#idle_inhibitor {
-    padding: 2 10 2 0px;
-    margin: 6px;
-    color: @color0;
-    background-color: @color3;
-    border: none;
-    border-radius: 20px;
-}
-
-#custom-power,
-#custom-launcher,
-#custom-notification {
-    padding: 2 18 2 15px;
-    margin: 6 6 6 6px;
-    color: @fl;
-    background-color: @color3;
-    border: none;
-    border-radius: 20px;
-}
-
-tooltip {
-    background: @bg;
-    margin: 20px;
-    padding: 15px;
-    border: 20px solid rgba(100, 114, 125, 0);
-    border-radius: 10px;
-}
 
 /* ========== Other ========== */
 
-#custom-menu {
-    padding: 2 15px;
-    margin: 5 5 5 5px;
-    color: @vl;
-    background-color: @color3;
-    border: none;
-    border-radius: 20px;
-}
-
-#custom-menu:hover {
-    color: @fl;
-}
-
-#cpu {
-    padding: 8 15px;
-    margin: 6px;
-    color: @color0;
-    background-color: @color3;
-    border: none;
-    border-radius: 20px;
-}
-
-#clock.date {
-    padding: 2 15px;
-    margin: 6px;
-    color: @color0;
-    background-color: @color3;
-    border: none;
-    border-radius: 20px;
-}
-
-#window {
-    padding: 2 15px;
-    margin: 6px;
-    color: @color0;
-    background-color: @color3;
-    border: none;
-    border-radius: 20px;
-}
-
-#custom-cmus,
-#custom-weather {
-    padding: 2 15px;
-    margin: 6px;
-    color: @color0;
-    background-color: @color3;
-    border: none;
-    border-radius: 20px;
-}
-
-#custom-cmus:hover {
-    color: @color0;
-}
-
-#custom-kitty {
-    padding: 2 10 2 15px;
-    margin: 5 0 5 5px;
-    color: @color0;
-    background-color: @color3;
-    border: none;
-    border-radius: 20 0 0 20px;
-}
-
-#custom-kitty:hover {
-    color: @color0;
-}
-
-#custom-nemo {
-    padding: 2 15 2 10px;
-    margin: 5 5 5 0px;
-    color: @color0;
-    background-color: @color3;
-    border: none;
-    border-radius: 0 20 20 0px;
-}
-
-#custom-nemo:hover {
-    color: @color0;
-}
-
-#battery {
-    padding: 8 15px;
-    margin: 6 6 6 0px;
-    color: @color0;
-    background-color: @color3;
-    border: none;
-    border-radius: 5 20 20 5px;
-}
-
-#battery.charging,
-#battery.plugged {
-    color: @color0;
-}
-
-#battery.bat2 {
-    padding: 8 15px;
-    margin: 6 5 6 6px;
-    color: @color0;
-    background-color: @color3;
-    border: none;
-    border-radius: 20 5 5 20px;
-}
-
-#battery.charging,
-#battery.plugged {
-    color: @color0;
-}
+/*#custom-menu {*/
+/*    padding: 2 15px;*/
+/*    margin: 5 5 5 5px;*/
+/*    color: @vl;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20px;*/
+/*}*/
+/**/
+/*#custom-menu:hover {*/
+/*    color: @fl;*/
+/*}*/
+/**/
+/*#cpu {*/
+/*    padding: 8 15px;*/
+/*    margin: 6px;*/
+/*    color: @color0;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20px;*/
+/*}*/
+/**/
+/*#clock.date {*/
+/*    padding: 2 15px;*/
+/*    margin: 6px;*/
+/*    color: @color0;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20px;*/
+/*}*/
+/**/
+/*#window {*/
+/*    padding: 2 15px;*/
+/*    margin: 6px;*/
+/*    color: @color0;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20px;*/
+/*}*/
+/**/
+/*#custom-cmus,*/
+/*#custom-weather {*/
+/*    padding: 2 15px;*/
+/*    margin: 6px;*/
+/*    color: @color0;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20px;*/
+/*}*/
+/**/
+/*#custom-cmus:hover {*/
+/*    color: @color0;*/
+/*}*/
+/**/
+/*#custom-kitty {*/
+/*    padding: 2 10 2 15px;*/
+/*    margin: 5 0 5 5px;*/
+/*    color: @color0;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20 0 0 20px;*/
+/*}*/
+/**/
+/*#custom-kitty:hover {*/
+/*    color: @color0;*/
+/*}*/
+/**/
+/*#custom-nemo {*/
+/*    padding: 2 15 2 10px;*/
+/*    margin: 5 5 5 0px;*/
+/*    color: @color0;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 0 20 20 0px;*/
+/*}*/
+/**/
+/*#custom-nemo:hover {*/
+/*    color: @color0;*/
+/*}*/
+/**/
+/*#battery {*/
+/*    padding: 8 15px;*/
+/*    margin: 6 6 6 0px;*/
+/*    color: @color0;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 5 20 20 5px;*/
+/*}*/
+/**/
+/*#battery.charging,*/
+/*#battery.plugged {*/
+/*    color: @color0;*/
+/*}*/
+/**/
+/*#battery.bat2 {*/
+/*    padding: 8 15px;*/
+/*    margin: 6 5 6 6px;*/
+/*    color: @color0;*/
+/*    background-color: @color3;*/
+/*    border: none;*/
+/*    border-radius: 20 5 5 20px;*/
+/*}*/
+/**/
+/*#battery.charging,*/
+/*#battery.plugged {*/
+/*    color: @color0;*/
+/*}*/
