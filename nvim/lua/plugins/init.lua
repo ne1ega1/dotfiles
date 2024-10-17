@@ -24,4 +24,9 @@ return {
     {
         "theHamsta/nvim-dap-virtual-text"
     },
+
+    {
+        'Exafunction/codeium.vim',
+        event = 'BufEnter'
+    },
 }

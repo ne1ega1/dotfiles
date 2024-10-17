@@ -191,3 +191,5 @@ alias wg_off='sudo wg-quick down dimon_wg'
 alias pixel='scrcpy --render-driver=software --window-height=1240 --window-title="Pixel 7" -e'
 
 #cat ~/.cache/wal/sequences
+
+[ "$(tty)" = /dev/tty1 ] && exec Hyprland

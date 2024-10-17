@@ -51,7 +51,7 @@
         "temperature",
         "group/rd-soft",
         "group/lu-dark",
-        "custom/notification"
+        "group/group-power"
     ],
     // =========================================================================
     // Modules
@@ -81,8 +81,7 @@
     },
     "custom/launcher": {
         "format": " 󰣇 ",
-        //"on-click": "exec nwg-drawer -c 8 -is 70 -spacing 23 -wm hyprland",
-        "on-click": "~/.config/nwg-panel/nwg_menu_start.sh",
+        "on-click": "exec nwg-drawer -c 6 -is 52 -spacing 18 -wm hyprland -mb 540 -mr 1600 -g Qogir-Dark",
         "tooltip": false
     },
     "custom/settings": {
@@ -115,7 +114,7 @@
         }
     },
     "hyprland/language": {
-        "format": "   {}",
+        "format": "  {}",
         "format-en": "EN",
         "format-ru": "RU"
     },
@@ -230,10 +229,21 @@
         "signal": 8
     },
     "custom/power": {
-        "format": "⏻",
-        "on-click": "nwgbar",
+        "format": " ",
+        "on-click": "shutdown",
         "tooltip": false
     },
+    "custom/reboot": {
+        "format": "󰑓 ",
+        "on-click": "reboot",
+        "tooltip": false
+    },
+    "custom/lock": {
+        "format": "󰍁 ",
+        "on-click": "hyprlock",
+        "tooltip": false
+    },
+
 
     // Hardware --------------------------------------------------------------
 
@@ -320,12 +330,27 @@
         "drawer": {
             "transition-duration": 500,
             "children-class": "not-misc",
-            "transition-right-to-left": false
+            "transition-left-to-right": true 
         },
         "modules": [
+            "custom/weather",
             "idle_inhibitor",
             "custom/pacman",
             "network"
+        ]
+    },
+
+    "group/group-power": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/power",
+            "custom/reboot",
+            "custom/lock"
         ]
     },
 
@@ -341,13 +366,10 @@
     },
     "custom/weather": {
         "format": "{}",
-        "format-alt": "{alt}: {}",
-        "format-alt-click": "click-right",
-        "interval": 3600,
-        "exec": "curl -s 'https://wttr.in/?format=1'",
-        //"return-type": "json",
-        //"exec": "~/.config/waybar/modules/weather.sh",
-        "exec-if": "ping wttr.in -c1"
+        "tooltip": true,
+        "interval": 60,
+        "exec": "wttrbar --location Moscow --custom-indicator '{ICON} {temp_C}° (feels like {FeelsLikeC}°)'",
+        "return-type": "json"
     },
     "custom/media": {
         "format": "{icon} {}",

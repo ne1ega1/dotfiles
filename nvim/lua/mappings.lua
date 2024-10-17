@@ -6,7 +6,7 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "<leader>w", ":w<CR>", { desc = "Save" })
 map("i", "jj", "<Esc>", { desc = "Exit in insert mode" })
-map({"n", "v"}, "<leader>y", [["+y]], { desc = "Yank to clipboard" })
+map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to clipboard" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- Navigation
@@ -37,27 +37,34 @@ map("n", "gb", ":BufferLinePick<CR>", { desc = "Picking tab" })
 map("n", "<leader>dd", ':TermExec cmd="sudo systemctl start docker.socket"', { desc = "Start docker" })
 map("n", "<leader>mu", ':TermExec cmd="make up" direction=float<CR>', { desc = "Start airflow" })
 map("n", "<leader>md", ':TermExec cmd="make down" direction=float<CR>', { desc = "Stop airflow" })
-map("n", "<leader>mr", ':TermExec cmd="make down && make clean && make up" direction=float<CR>', { desc = "Restart airflow" })
 map(
-  "n",
-  "<leader>mb",
-  ':TermExec cmd="make build/airflow && make build/crawlers && make build/parsers/base && make build/normalizers/base" direction=float<CR>',
-  { desc = "Build base" }
+    "n",
+    "<leader>mr",
+    ':TermExec cmd="make down && make clean && make up" direction=float<CR>',
+    { desc = "Restart airflow" }
 )
 map(
-  "n",
-  "<leader>mo",
-  ':TermExec cmd="make build/xporters/couchdb && make build/joiners && make build/operators" direction=float<CR>',
-  { desc = "Build operators" }
+    "n",
+    "<leader>mb",
+    ':TermExec cmd="make build/airflow && make build/crawlers && make build/parsers/base && make build/normalizers/base" direction=float<CR>',
+    { desc = "Build base" }
+)
+map(
+    "n",
+    "<leader>mo",
+    ':TermExec cmd="make build/xporters/couchdb && make build/joiners && make build/operators" direction=float<CR>',
+    { desc = "Build operators" }
 )
 
--- Debugger
--- map("n", "<leader>dt", ':lua require("dap_ui").toggle()<CR>', { desc = "Dap UI" })
--- map("n", "<leader>db", ':lua require("dap").toggle_breakpoint()<CR>', { desc = "Toggle Breakpoint" })
+-- Codeium
+map('i', '<C-g>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+map('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
+map('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
+map('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
 
 -- Other
 map("n", "<leader>h", ":nohlsearch<CR>")
 map("n", "<leader>fmp", ":silent !black %<cr>", { desc = "Black python formatting" })
 map("n", "<leader>mp", ":MarkdownPreviewToggle<cr>", { desc = "Markdown preview" })
 map("n", "<leader>fmd", vim.lsp.buf.format, { desc = "Format code using LSP" })
-
+map("n", "<leader>fma", vim.lsp.buf.code_action, { desc = "Code code_action" })
