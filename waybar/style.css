@@ -6,7 +6,7 @@
 /*░╚════╝░╚═════╝░╚═════╝░  ╚═════╝░░░░╚═╝░░░░░░╚═╝░░░╚══════╝╚══════╝*/
 
 * {
-  font-family: HackNerdFont;
+  font-family: JetBrainsMonoNerdFont;
   font-size: 14px;
   min-height: 0;
   font-weight: bold;
@@ -59,15 +59,14 @@ window#waybar.hidden {
   /*color: @color0;*/
 }
 
-/*#workspaces button.active {
-  background-color: @color10;
-  border-radius: 20;
-	color: @color0;
-}*/
+/*#workspaces button.active {*/
+/*  background-color: transparent;*/
+/*  border-radius: 20;*/
+/*}*/
 
-#workspaces button:hover {
-  color: @color0;
-}
+/*#workspaces button:hover {*/
+/*  color: @color0;*/
+/*}*/
 
 /*#workspaces button.empty {
 	color: #6c7086
@@ -76,9 +75,9 @@ window#waybar.hidden {
 /*#workspaces button.focused {
 }*/
 
-/*#workspaces button.urgent {
-	color: #f38ba8;
-}*/
+#workspaces button.urgent {
+    color: #f38ba8;
+}
 
 button {
   box-shadow: inset 0 -3px transparent;

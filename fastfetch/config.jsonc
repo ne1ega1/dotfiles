@@ -73,11 +73,11 @@
             "type": "terminal",
             "key": "  "
         },
-        {
-            "type": "theme",
-            "key": "  󰉼",
-            "format": "{1}"
-        },
+        //{
+        //    "type": "theme",
+        //    "key": "  󰉼",
+        //    "format": "{4}"
+        //},
         {
             "type": "theme",
             "key": "  󰉼",

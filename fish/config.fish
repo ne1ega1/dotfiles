@@ -193,3 +193,7 @@ alias pixel='scrcpy --render-driver=software --window-height=1240 --window-title
 #cat ~/.cache/wal/sequences
 
 [ "$(tty)" = /dev/tty1 ] && exec Hyprland
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

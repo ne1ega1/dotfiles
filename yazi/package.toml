@@ -2,4 +2,4 @@
 deps = [{ use = "yazi-rs/plugins:full-border", rev = "6c11a97" }]
 
 [flavor]
-deps = [{ use = "yazi-rs/flavors:catppuccin-macchiato", rev = "d479f67" }]
+deps = [{ use = "yazi-rs/flavors:catppuccin-macchiato", rev = "d479f67" }, { use = "Chromium-3-Oxide/everforest-medium", rev = "65bc09b" }]

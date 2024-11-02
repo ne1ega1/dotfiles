@@ -368,7 +368,7 @@
         "format": "{}",
         "tooltip": true,
         "interval": 60,
-        "exec": "wttrbar --location Moscow --custom-indicator '{ICON} {temp_C}° (feels like {FeelsLikeC}°)'",
+        "exec": "wttrbar --location Gubkin --custom-indicator '{ICON} {temp_C}° (feels like {FeelsLikeC}°)'",
         "return-type": "json"
     },
     "custom/media": {
