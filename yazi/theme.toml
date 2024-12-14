@@ -7,4 +7,4 @@
 # : Flavor {{{
 
 [flavor]
-use = "everforest-medium"
+use = "catppuccin-macchiato"

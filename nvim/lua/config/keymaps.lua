@@ -1,5 +1,3 @@
-require "nvchad.mappings"
-
 local map = vim.keymap.set
 
 -- Base
@@ -38,29 +36,37 @@ map("n", "<leader>dd", ':TermExec cmd="sudo systemctl start docker.socket"', { d
 map("n", "<leader>mu", ':TermExec cmd="make up" direction=float<CR>', { desc = "Start airflow" })
 map("n", "<leader>md", ':TermExec cmd="make down" direction=float<CR>', { desc = "Stop airflow" })
 map(
-    "n",
-    "<leader>mr",
-    ':TermExec cmd="make down && make clean && make up" direction=float<CR>',
-    { desc = "Restart airflow" }
+  "n",
+  "<leader>mr",
+  ':TermExec cmd="make down && make clean && make up" direction=float<CR>',
+  { desc = "Restart airflow" }
 )
 map(
-    "n",
-    "<leader>mb",
-    ':TermExec cmd="make build/airflow && make build/crawlers && make build/parsers/base && make build/normalizers/base" direction=float<CR>',
-    { desc = "Build base" }
+  "n",
+  "<leader>mb",
+  ':TermExec cmd="make build/airflow && make build/crawlers && make build/parsers/base && make build/normalizers/base" direction=float<CR>',
+  { desc = "Build base" }
 )
 map(
-    "n",
-    "<leader>mo",
-    ':TermExec cmd="make build/xporters/couchdb && make build/joiners && make build/operators" direction=float<CR>',
-    { desc = "Build operators" }
+  "n",
+  "<leader>mo",
+  ':TermExec cmd="make build/xporters/couchdb && make build/joiners && make build/operators" direction=float<CR>',
+  { desc = "Build operators" }
 )
 
 -- Codeium
-map('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
-map('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
-map('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
-map('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
+map("i", "<C-g>", function()
+  return vim.fn["codeium#Accept"]()
+end, { expr = true, silent = true })
+map("i", "<c-;>", function()
+  return vim.fn["codeium#CycleCompletions"](1)
+end, { expr = true, silent = true })
+map("i", "<c-,>", function()
+  return vim.fn["codeium#CycleCompletions"](-1)
+end, { expr = true, silent = true })
+map("i", "<c-x>", function()
+  return vim.fn["codeium#Clear"]()
+end, { expr = true, silent = true })
 
 -- Other
 map("n", "<leader>h", ":nohlsearch<CR>")
