@@ -4,7 +4,7 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "<leader>w", ":w<CR>", { desc = "Save" })
 map("i", "jj", "<Esc>", { desc = "Exit in insert mode" })
-map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to clipboard" })
+-- map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to clipboard" })
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- Navigation
@@ -12,10 +12,6 @@ map("n", "<c-k>", ":wincmd k<CR>")
 map("n", "<c-j>", ":wincmd j<CR>")
 map("n", "<c-h>", ":wincmd h<CR>")
 map("n", "<c-l>", ":wincmd l<CR>")
-
--- increment/decrement numbers
-map("n", "<leader>+", "<C-a>", { desc = "Increment" })
-map("n", "<leader>-", "<C-x>", { desc = "Decrement" })
 
 -- Splits
 map("n", "\\", ":vsplit<CR>", { desc = "Vertical split" })
@@ -28,8 +24,6 @@ map("n", "<s-Tab>", ":bp<CR>", { desc = "Previous tab" })
 map("n", "<leader>x", ":BufferLinePickClose<CR>", { desc = "Close active tab" })
 map("n", "<leader>X", ":BufferLineCloseRight<CR>", { desc = "Close right tab" })
 map("n", "<leader>s", ":BufferLineSortByTabs<CR>", { desc = "Sorting tabs by name" })
-map("n", "gs", ":BufferLineSortByDirectory<CR>", { desc = "Sorting tabs by directory" })
-map("n", "gb", ":BufferLinePick<CR>", { desc = "Picking tab" })
 
 -- Terminal
 map("n", "<leader>dd", ':TermExec cmd="sudo systemctl start docker.socket"', { desc = "Start docker" })
@@ -67,10 +61,3 @@ end, { expr = true, silent = true })
 map("i", "<c-x>", function()
   return vim.fn["codeium#Clear"]()
 end, { expr = true, silent = true })
-
--- Other
-map("n", "<leader>h", ":nohlsearch<CR>")
-map("n", "<leader>fmp", ":silent !black %<cr>", { desc = "Black python formatting" })
-map("n", "<leader>mp", ":MarkdownPreviewToggle<cr>", { desc = "Markdown preview" })
-map("n", "<leader>fmd", vim.lsp.buf.format, { desc = "Format code using LSP" })
-map("n", "<leader>fma", vim.lsp.buf.code_action, { desc = "Code code_action" })

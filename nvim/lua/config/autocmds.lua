@@ -24,11 +24,3 @@ vim.api.nvim_create_user_command("Pythonify", function()
   pcall(vim.api.nvim_command, "%s/false/False/g")
   pcall(vim.api.nvim_command, "%s/null/None/g")
 end, {})
-
--- Disable autoformat for python files
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "py" },
-  callback = function()
-    vim.b.autoformat = false
-  end,
-})
