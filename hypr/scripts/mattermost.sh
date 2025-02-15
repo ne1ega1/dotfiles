@@ -2,4 +2,4 @@
 
 pkill -f mattermost-desktop
 sleep 10
-mattermost-desktop
+mattermost-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland

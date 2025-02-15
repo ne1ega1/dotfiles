@@ -26,5 +26,8 @@ o.colorcolumn = "120" -- highlight column 120
 -- LazyVim auto format
 vim.g.autoformat = false
 
+-- disable Ruff
+vim.g.lazyvim_python_ruff = ""
+
 -- disable codeium keybindings
-vim.g.codeium_disable_bindings = 1
+-- vim.g.codeium_disable_bindings = 1

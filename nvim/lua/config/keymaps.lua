@@ -32,19 +32,19 @@ map("n", "<leader>md", ':TermExec cmd="make down" direction=float<CR>', { desc =
 map(
   "n",
   "<leader>mr",
-  ':TermExec cmd="make down && make clean && make up" direction=float<CR>',
+  ':terminal cmd="make down && make clean && make up" direction=float<CR>',
   { desc = "Restart airflow" }
 )
 map(
   "n",
   "<leader>mb",
-  ':TermExec cmd="make build/airflow && make build/crawlers && make build/parsers/base && make build/normalizers/base" direction=float<CR>',
+  ':terminal cmd "make build/airflow && make build/crawlers && make build/parsers/base && make build/normalizers/base"<CR>',
   { desc = "Build base" }
 )
 map(
   "n",
   "<leader>mo",
-  ':TermExec cmd="make build/xporters/couchdb && make build/joiners && make build/operators" direction=float<CR>',
+  ':terminal cmd="make build/xporters/couchdb && make build/joiners && make build/operators" direction=float<CR>',
   { desc = "Build operators" }
 )
 

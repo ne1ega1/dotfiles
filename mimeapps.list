@@ -1,0 +1,18 @@
+[Default Applications]
+x-scheme-handler/tonsite=userapp-AyuGram Desktop-Y148Z2.desktop
+text/html=vivaldi-stable.desktop
+x-scheme-handler/http=vivaldi-stable.desktop
+x-scheme-handler/https=vivaldi-stable.desktop
+x-scheme-handler/about=vivaldi-stable.desktop
+x-scheme-handler/unknown=vivaldi-stable.desktop
+inode/directory=yazi.desktop
+x-scheme-handler/ime=org.telegram.desktop._a119b0edc34b5b0bcd393647dddc192a.desktop
+text/plain=nvim.desktop
+application/pdf=masterpdfeditor5.desktop
+x-scheme-handler/tg=userapp-AyuGram Desktop-UMV9Z2.desktop
+
+[Added Associations]
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;org.telegram.desktop._a119b0edc34b5b0bcd393647dddc192a.desktop;org.telegram.desktop._34fdfac69e390dc497e099dbb92d56cd.desktop;org.telegram.desktop._197f4b23b4f46b6589a321dfd6b6f0a6.desktop;userapp-AyuGram Desktop-Y148Z2.desktop;
+x-scheme-handler/pdf=masterpdfeditor5.desktop;
+x-scheme-handler/ime=org.telegram.desktop._a119b0edc34b5b0bcd393647dddc192a.desktop;org.telegram.desktop._34fdfac69e390dc497e099dbb92d56cd.desktop;org.telegram.desktop._197f4b23b4f46b6589a321dfd6b6f0a6.desktop;
+x-scheme-handler/tg=org.telegram.desktop.desktop;org.telegram.desktop._34fdfac69e390dc497e099dbb92d56cd.desktop;org.telegram.desktop._a119b0edc34b5b0bcd393647dddc192a.desktop;org.telegram.desktop._197f4b23b4f46b6589a321dfd6b6f0a6.desktop;userapp-AyuGram Desktop-UMV9Z2.desktop;

@@ -6,6 +6,8 @@
 
 ## Set values
 fish_add_path /home/jumanji/.spicetify
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # Format man pages
 set -x MANROFFOPT "-c"
@@ -175,6 +177,7 @@ alias gc='cd ~/.config'
 # Work
 alias lg='lazygit'
 alias gl='git pull'
+alias gb='git checkout'
 alias d='sudo systemctl start docker.socket'
 alias b='cd ~/etlsrc && make build/airflow && make build/crawlers && make build/parsers/base && make build/normalizers/base'
 alias n='cd ~/etlsrc && make build/xporters/couchdb && make build/operators'
@@ -200,3 +203,12 @@ alias pixel='scrcpy --render-driver=software --window-height=1240 --window-title
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+function y
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		builtin cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end

@@ -1,0 +1,9 @@
+{
+  "devices": [
+    {
+      "name": "k03",
+      "productId": "0x0070"
+    }
+  ],
+  "layouts": ["us", "ru"]
+}
