@@ -29,5 +29,10 @@ vim.g.autoformat = false
 -- disable Ruff
 vim.g.lazyvim_python_ruff = ""
 
+-- add source path
+vim.g.lazyvim_pyright_extra_paths = { "/home/jumanji/etlsrc/airflow/src" }
+
 -- disable codeium keybindings
 -- vim.g.codeium_disable_bindings = 1
+
+vim.g.matchup_enabled = 1

@@ -23,6 +23,41 @@ use = "yazi-rs/plugins:diff"
 rev = "8945e54"
 hash = "7a08e303167d5b655c06da6d570f0333"
 
+[[plugin.deps]]
+use = "TD-Sky/sudo"
+rev = "af70636"
+hash = "a94dcbe9266512806c677138e8591ddb"
+
+[[plugin.deps]]
+use = "Reledia/glow"
+rev = "c76bf4f"
+hash = "a6b78bf9af5390e3a85a6951fbb7b93"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:lsar"
+rev = "a1b678d"
+hash = "d0950c172ce352d31554ad6db8226494"
+
+[[plugin.deps]]
+use = "Reledia/miller"
+rev = "40e0265"
+hash = "2d6d77583162aaf0a599e7a3091b5878"
+
+[[plugin.deps]]
+use = "macydnah/office"
+rev = "bcd9e9e"
+hash = "51ad32b80bc4cd496c55cd82fbfd238a"
+
+[[plugin.deps]]
+use = "pirafrank/what-size"
+rev = "b23e3a4"
+hash = "98e5f5af3efd3ba8bc2db0720187cc83"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "f0a0a99"
+hash = "ab115c6cc77f5710c27f39dfa2f3d4d"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-macchiato"
 rev = "fd85060"

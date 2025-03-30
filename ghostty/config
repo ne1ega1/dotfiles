@@ -3,6 +3,7 @@
 theme = catppuccin-macchiato
 background-opacity = 0.85
 background-blur-radius = 20
+# custom-shader = /home/jumanji/.config/ghostty/ghostty-shaders/gears-and-belts.glsl
 
 font-family = Hack Nerd Font 
 font-size = 11

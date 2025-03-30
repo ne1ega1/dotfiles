@@ -6,8 +6,6 @@
 
 ## Set values
 fish_add_path /home/jumanji/.spicetify
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # Format man pages
 set -x MANROFFOPT "-c"
@@ -190,8 +188,6 @@ alias pt='sudo tailscale up --login-server https://hs.ptsecurity.com --accept-ro
 alias pt_off='tailscale down'
 alias wg_on='sudo wg-quick up dimon_wg'
 alias wg_off='sudo wg-quick down dimon_wg'
-# alias pt='nmcli con up PTsecurity'
-# alias pt_off='nmcli con down PTsecurity'
 
 # Other
 alias pixel='scrcpy --render-driver=software --window-height=1240 --window-title="Pixel 7" -e'
